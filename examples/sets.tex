@@ -1,0 +1,139 @@
+\documentclass{article}
+
+\usepackage{amsmath, amsthm}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\block}{{\sf [block]}}
+\newcommand{\blockend}{{\sf [block-end]}}
+
+\begin{document}
+ 
+\begin{proposition} 
+Let $A$, $B$, and $C$ be sets. Then $A \cup (B \cap C) = (A \cup B) \cap (A 
+\cup C)$.
+\end{proposition}
+
+\begin{proof}
+Suppose $x$ is in $A \cup (B \cap C)$. Then either $x$ is in $A$, or it is in 
+$B \cap C$. In the first case, since $x$ is in $A$, it is in both $A \cup B$ and 
+$A \cup C$, and hence in $(A \cup B) \cap (A \cup C)$. In the second case, $x$ 
+is in both $B$ and $C$. This means that once again it is in both $A \cup B$ and 
+$A \cup C$, and hence in $(A \cup B) \cap (A \cup C)$.
+
+For the other direction, suppose $x$ is in $(A \cup B) \cap (A \cup C)$. Then 
+it is in both $A \cup B$ and $A \cup C$. If $x$ is in $A$, then it is in $A \cup 
+(B \cap C)$, as required. If $x$ is not in $A$, then the fact that it is in $A 
+\cup B$ implies that it is in $B$, and the fact that it is in $A \cup C$ implies 
+that it is in $C$. Hence it is in $B \cap C$, and hence $A \cup (B \cap C)$, as 
+required.
+\end{proof}
+
+Here is a version that shows the block structure.
+
+\begin{proof}\ 
+\begin{quote}
+Suppose $x$ is in $A \cup (B \cap C)$. Then either $x$ is in $A$, or it is in $B 
+\cap C$. 
+\begin{quote}
+In the first case, since $x$ is in $A$, it is in both $A \cup B$ and 
+$A \cup C$, and hence in $(A \cup B) \cap (A \cup C)$. 
+\end{quote}
+\begin{quote}
+In the second case, $x$ 
+is in both $B$ and $C$. This means that once again it is in both $A \cup B$ and 
+$A \cup C$, and hence in $(A \cup B) \cap (A \cup C)$.
+\end{quote}
+\end{quote}
+
+\begin{quote}
+For the other direction, suppose $x$ is in $(A \cup B) \cap (A \cup C)$. Then it 
+is in both $A \cup B$ and $A \cup C$. 
+\begin{quote}
+If $x$ is in $A$, then it is in $A \cup (B \cap C)$, as required. 
+\end{quote}
+\begin{quote}
+If $x$ is not in $A$, then the fact that it is in $A \cup B$ implies that it is 
+in $B$, and the fact that it is in $A \cup C$ implies that it is in $C$. Hence 
+it is in $B \cap C$, and hence $A \cup (B \cap C)$, as required. 
+\end{quote}
+\end{quote}
+\end{proof}
+
+\begin{proposition} 
+Let $A$, $B$, and $C$ be sets. Then $A \cap (B \cup C) = (A \cap B) \cup (A 
+\cap C)$.
+\end{proposition}
+
+\begin{proof}
+Suppose $x$ is in $A \cap (B \cup C)$. Then $x$ is in $A$, and $x$ is in $B 
+\cup C$. This means that $x$ is in either $B$ or $C$. If $x$ is in $B$, it is 
+in 
+$A \cap B$, and hence $(A \cap B) \cup (A \cap C)$. If $x$ is in $C$, it is in 
+$A \cap C$, and hence $(A \cap B) \cup (A \cap C)$. Either way, we have the 
+desired conclusion.
+
+Conversely, suppose $x$ is in $(A \cap B) \cup (A \cap C)$. If $x$ is in $A 
+\cap B$, it is in both $A$ and $B$. Hence $x$ is in $B \cup C$, and $A \cap (B 
+\cup C)$. If $x$ is in $A \cap C$, it is in both $A$ and $C$. Hence $x$ is in 
+$B 
+\cup C$, and again in $A \cap (B \cup C)$, as required.
+\end{proof}
+
+\begin{proposition}
+Let $A$ and $B$ be sets. Then $\overline{A \setminus B} = \overline{A} \cup B$.
+\end{proposition}
+
+\begin{proof}
+Suppose $x$ is in $\overline{A \setminus B}$. Then $x$ is not in $A \setminus 
+B$. We want to show that $x$ is in $\overline{A} \cup B$. If $x$ is in 
+$\overline{A}$, we are done. Otherwise, $x$ is in $A$. Then, if $x$ is not in 
+$B$, then $x$ is in $A \setminus B$, a contradiction. So $x$ is in $B$, and so 
+it is in $\overline{A} \cup B$.
+
+Conversely, suppose $x$ is in $\overline{A} \cup B$. Then either $x$ is not in 
+$A$, or $x$ is in $B$. If $x$ is not in $A$, then it is not in $A \setminus B$, 
+as required. If $x$ is in $B$, then it is also not in $A \setminus B$, as 
+required.
+\end{proof}
+
+\begin{proposition}
+$(A \setminus B) \setminus C = A \setminus (B \cup C)$.
+ \end{proposition}
+
+\begin{proof}
+Suppose $x$ is in $(A \setminus B) \setminus C$. Then $x$ is
+in $A \setminus B$ but not $C$, and hence it is in $A$ but not $B$ or
+$C$. This means that $x$ is in $A$ but not $B \cup C$, and so in $A
+\setminus (B \cup C)$.
+
+Conversely, suppose $x$ is in $A \setminus (B \cup C)$. Then $x$ is in
+$A$, but not in $B \cup C$. In particular, $x$ is in neither $B$ nor
+$C$, because otherwise it would be in $B \cup C$. So $x$ is in $A
+\setminus B$, and hence $(A \setminus B) \setminus C$.
+\end{proof}
+
+\begin{definition}
+Two sets $A$ and $B$ are \emph{disjoint} if $A \cap B = \emptyset$.
+\end{definition}
+
+\begin{proposition}
+Show that If $A$ and $B$ are disjoint, $C \subseteq A$, and $D \subseteq B$, 
+then $C$ and $D$ are disjoint. 
+\end{proposition}
+
+\begin{proof}
+Suppose $A$ and $B$ are disjoint, $C \subseteq A$, and $D \subseteq B$. We need 
+to show that there is no element $x$ that is in both $C$ and $D$. Suppose 
+otherwise, that is, $x$ is in $C$ and $x$ is in $D$. Since $C \subseteq A$, we 
+have that $x$ is in $A$, and since $D \subseteq B$, we have that $x$ is in $B$. 
+So $x$ is in $A$ and $B$, contradicting the fact that $A$ and $B$ are disjoint.
+\end{proof}
+
+
+
+\end{document}
